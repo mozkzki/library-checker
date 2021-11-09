@@ -1,0 +1,27 @@
+{
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "${workspaceFolder}/lambda/.venv/bin/black",
+  "python.formatting.blackArgs": ["--line-length", "100"],
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "${workspaceFolder}/lambda/.venv/bin/mypy",
+  "python.sortImports.path": "${workspaceFolder}/lambda/.venv/bin/isort",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "${workspaceFolder}/lambda/.venv/bin/flake8",
+  "python.linting.flake8Args": [
+    "--max-line-length=100",
+    "--ignore=E203,W503",
+    "--verbose"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "${workspaceFolder}/lambda/.venv/bin/pytest",
+  "python.testing.pytestArgs": ["tests"],
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/lambda/src",
+    "${workspaceFolder}/lambda/.venv/lib/python3.9/site-packages"
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/lambda/src",
+    "${workspaceFolder}/lambda/.venv/lib/python3.9/site-packages"
+  ]
+}
