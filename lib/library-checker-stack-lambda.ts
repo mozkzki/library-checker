@@ -56,6 +56,11 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           ///////////////////////////////////////////////////////////////////////////
           // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
           ///////////////////////////////////////////////////////////////////////////
+          // for moz-library
+          USER1: "dummy",
+          USER2: "dummy",
+          USER3: "dummy",
+          USER4: "dummy",
           // for post LINE
           LINE_POST_URL: "dummy",
         },
@@ -82,6 +87,11 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           ///////////////////////////////////////////////////////////////////////////
           // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
           ///////////////////////////////////////////////////////////////////////////
+          // for moz-library
+          USER1: "dummy",
+          USER2: "dummy",
+          USER3: "dummy",
+          USER4: "dummy",
           // for post LINE
           LINE_POST_URL: "dummy",
         },
@@ -108,6 +118,11 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           ///////////////////////////////////////////////////////////////////////////
           // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
           ///////////////////////////////////////////////////////////////////////////
+          // for moz-library
+          USER1: "dummy",
+          USER2: "dummy",
+          USER3: "dummy",
+          USER4: "dummy",
           // for post LINE
           LINE_POST_URL: "dummy",
         },
@@ -134,6 +149,11 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           ///////////////////////////////////////////////////////////////////////////
           // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
           ///////////////////////////////////////////////////////////////////////////
+          // for moz-library
+          USER1: "dummy",
+          USER2: "dummy",
+          USER3: "dummy",
+          USER4: "dummy",
           // for post LINE
           LINE_POST_URL: "dummy",
         },

@@ -143,4 +143,5 @@ screenshot_tmp.png
 chromedriver
 headless-chromium
 env.sh
+env_lambda.sh
 response.json

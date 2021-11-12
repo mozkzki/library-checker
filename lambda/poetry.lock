@@ -223,7 +223,7 @@ selenium = "3.141.0"
 type = "git"
 url = "https://github.com/mozkzki/moz-library.git"
 reference = "main"
-resolved_reference = "18a48e3ea41d3d3a6f0b8f679ccb2e52ec4e5c5f"
+resolved_reference = "667184c1914ee8b7115251a7fdac4df2f9a11e83"
 
 [[package]]
 name = "mypy"
