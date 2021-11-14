@@ -23,7 +23,10 @@ make layer
 スタックをデプロイ。
 
 ```sh
-cdk deploy
+# 開発
+./deploy_dev.sh
+# 本番
+./deploy_prd.sh
 ```
 
 ### 実行

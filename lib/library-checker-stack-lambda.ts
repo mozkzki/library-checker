@@ -8,7 +8,10 @@ import * as targets from "@aws-cdk/aws-events-targets";
 
 export class LibraryCheckerStackLambda extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+    // 環境変数
+    const phase = process.env.PHASE;
+
+    super(scope, `${phase}-${id}`, props);
 
     ////////////////////////////
     // Python lambda
@@ -36,12 +39,16 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
       }
     );
 
+    // コード差分がない場合のエラー抑止のため
+    const uniqueVersionId = `${new Date().getTime()}`;
+
     // [レンタル本] 貸し出し本のチェック
     const libraryCheckerCheckRentalFunction = new lambdapython.PythonFunction(
       this,
       "fn-library-checker-check-rental",
       {
-        functionName: "library-checker-check-rental",
+        functionName: `${phase}-library-checker-check-rental`,
+        description: `This lambda deployed at ${uniqueVersionId}`,
         runtime: lambda.Runtime.PYTHON_3_7,
         entry: path.resolve(__dirname, "../lambda/src/library_checker"),
         index: "index.py",
@@ -53,16 +60,13 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           CHROME_BINARY_LOCATION: "/opt/python/headless-chromium",
           CHROME_DRIVER_LOCATION: "/opt/python/chromedriver",
           HOME: "/opt/python/",
-          ///////////////////////////////////////////////////////////////////////////
-          // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
-          ///////////////////////////////////////////////////////////////////////////
           // for moz-library
-          USER1: "dummy",
-          USER2: "dummy",
-          USER3: "dummy",
-          USER4: "dummy",
+          USER1: process.env.USER1 || "dummy",
+          USER2: process.env.USER2 || "dummy",
+          USER3: process.env.USER3 || "dummy",
+          USER4: process.env.USER4 || "dummy",
           // for post LINE
-          LINE_POST_URL: "dummy",
+          LINE_POST_URL: process.env.LINE_POST_URL || "dummy",
         },
       }
     );
@@ -72,7 +76,8 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
       this,
       "fn-library-checker-check-expire",
       {
-        functionName: "library-checker-check-expire",
+        functionName: `${phase}-library-checker-check-expire`,
+        description: `This lambda deployed at ${uniqueVersionId}`,
         runtime: lambda.Runtime.PYTHON_3_7,
         entry: path.resolve(__dirname, "../lambda/src/library_checker"),
         index: "index.py",
@@ -84,16 +89,13 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           CHROME_BINARY_LOCATION: "/opt/python/headless-chromium",
           CHROME_DRIVER_LOCATION: "/opt/python/chromedriver",
           HOME: "/opt/python/",
-          ///////////////////////////////////////////////////////////////////////////
-          // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
-          ///////////////////////////////////////////////////////////////////////////
           // for moz-library
-          USER1: "dummy",
-          USER2: "dummy",
-          USER3: "dummy",
-          USER4: "dummy",
+          USER1: process.env.USER1 || "dummy",
+          USER2: process.env.USER2 || "dummy",
+          USER3: process.env.USER3 || "dummy",
+          USER4: process.env.USER4 || "dummy",
           // for post LINE
-          LINE_POST_URL: "dummy",
+          LINE_POST_URL: process.env.LINE_POST_URL || "dummy",
         },
       }
     );
@@ -103,7 +105,8 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
       this,
       "fn-library-checker-check-reserve",
       {
-        functionName: "library-checker-check-reserve",
+        functionName: `${phase}-library-checker-check-reserve`,
+        description: `This lambda deployed at ${uniqueVersionId}`,
         runtime: lambda.Runtime.PYTHON_3_7,
         entry: path.resolve(__dirname, "../lambda/src/library_checker"),
         index: "index.py",
@@ -115,16 +118,13 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           CHROME_BINARY_LOCATION: "/opt/python/headless-chromium",
           CHROME_DRIVER_LOCATION: "/opt/python/chromedriver",
           HOME: "/opt/python/",
-          ///////////////////////////////////////////////////////////////////////////
-          // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
-          ///////////////////////////////////////////////////////////////////////////
           // for moz-library
-          USER1: "dummy",
-          USER2: "dummy",
-          USER3: "dummy",
-          USER4: "dummy",
+          USER1: process.env.USER1 || "dummy",
+          USER2: process.env.USER2 || "dummy",
+          USER3: process.env.USER3 || "dummy",
+          USER4: process.env.USER4 || "dummy",
           // for post LINE
-          LINE_POST_URL: "dummy",
+          LINE_POST_URL: process.env.LINE_POST_URL || "dummy",
         },
       }
     );
@@ -134,7 +134,8 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
       this,
       "fn-library-checker-check-prepare",
       {
-        functionName: "library-checker-check-prepare",
+        functionName: `${phase}-library-checker-check-prepare`,
+        description: `This lambda deployed at ${uniqueVersionId}`,
         runtime: lambda.Runtime.PYTHON_3_7,
         entry: path.resolve(__dirname, "../lambda/src/library_checker"),
         index: "index.py",
@@ -146,16 +147,13 @@ export class LibraryCheckerStackLambda extends cdk.Stack {
           CHROME_BINARY_LOCATION: "/opt/python/headless-chromium",
           CHROME_DRIVER_LOCATION: "/opt/python/chromedriver",
           HOME: "/opt/python/",
-          ///////////////////////////////////////////////////////////////////////////
-          // 注意: 下記の環境変数についてはAWSコンソールにて正式な値をセットすること
-          ///////////////////////////////////////////////////////////////////////////
           // for moz-library
-          USER1: "dummy",
-          USER2: "dummy",
-          USER3: "dummy",
-          USER4: "dummy",
+          USER1: process.env.USER1 || "dummy",
+          USER2: process.env.USER2 || "dummy",
+          USER3: process.env.USER3 || "dummy",
+          USER4: process.env.USER4 || "dummy",
           // for post LINE
-          LINE_POST_URL: "dummy",
+          LINE_POST_URL: process.env.LINE_POST_URL || "dummy",
         },
       }
     );

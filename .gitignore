@@ -143,5 +143,6 @@ screenshot_tmp.png
 chromedriver
 headless-chromium
 env.sh
-env_lambda.sh
+deploy_prd.sh
+deploy_dev.sh
 response.json

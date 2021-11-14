@@ -1,5 +1,9 @@
 #!/bin/bash -eu
 
+# cdk deploy 時に必要
+export PHASE=dev
+
+# lambda 実行時に必要
 export CHROME_BINARY_LOCATION=dummy
 export CHROME_DRIVER_LOCATION=dummy
 export LINE_POST_URL=dummy
