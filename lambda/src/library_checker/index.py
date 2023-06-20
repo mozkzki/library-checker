@@ -60,7 +60,8 @@ def _check_env(key: str, is_check: bool = True) -> str:
 def _check_rental(is_reply: bool = False):
     zero_behavior = "none"
     if is_reply:
-        _post_to_line("図書館の貸出状況を調べます。")
+        # 2023/06/01のLINE料金改定対応 (送信メッセージ数制限が200になった)
+        # _post_to_line("図書館の貸出状況を調べます。")
         zero_behavior = "message"
 
     # 貸出本のチェック
@@ -81,7 +82,8 @@ def _check_rental(is_reply: bool = False):
 def _check_expire(is_reply: bool = False):
     zero_behavior = "none"
     if is_reply:
-        _post_to_line("借りた本で延滞しそうな本が無いかチェックします。")
+        # 2023/06/01のLINE料金改定対応 (送信メッセージ数制限が200になった)
+        # _post_to_line("借りた本で延滞しそうな本が無いかチェックします。")
         zero_behavior = "message"
 
     # 期限切れが近い貸出本のチェック
@@ -102,7 +104,8 @@ def _check_expire(is_reply: bool = False):
 def _check_reserve(is_reply: bool = False):
     zero_behavior = "none"
     if is_reply:
-        _post_to_line("図書館の予約状況を調べます。")
+        # 2023/06/01のLINE料金改定対応 (送信メッセージ数制限が200になった)
+        # _post_to_line("図書館の予約状況を調べます。")
         zero_behavior = "message"
 
     # 予約本のチェック
@@ -123,7 +126,8 @@ def _check_reserve(is_reply: bool = False):
 def _check_prepare(is_reply: bool = False):
     zero_behavior = "none"
     if is_reply:
-        _post_to_line("予約した本で届いたものが無いかチェックします。")
+        # 2023/06/01のLINE料金改定対応 (送信メッセージ数制限が200になった)
+        # _post_to_line("予約した本で届いたものが無いかチェックします。")
         zero_behavior = "message"
 
     # 到着した予約本のチェック
@@ -151,14 +155,22 @@ def _retern_body():
 
 
 def _post_message(messages: List[str]) -> None:
+    all_message = ""
     for message in messages:
-        _post_to_line(message)
+        if len(all_message) > 0:
+            all_message += "\n" + message
+        else:
+            all_message = message
+
+    if len(messages) > 0:
+        _post_to_line(all_message)
 
     if len(messages) > 0:
         message = """確認・変更はこちら。
 ↓
 [図書館のページ]: https://www.lib.nerima.tokyo.jp/opw/OPS/OPSUSER.CSP"""
-        _post_to_line(message)
+        # 2023/06/01のLINE料金改定対応 (送信メッセージ数制限が200になった)
+        # _post_to_line(message)
 
 
 def _post_to_line(message: str) -> None:
